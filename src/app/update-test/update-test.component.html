@@ -1,0 +1,112 @@
+<h3 style="text-align: center;margin-bottom: 10px;">Update Test</h3> 
+<div style="width: 300px;">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="testId">Test Id</label>
+        <input type="number" class="form-control" id="testId" required [(ngModel)]="testId" name="testId">
+      </div>
+   
+      <div class="btn-group">
+        <button type="submit" class="btn btn-success">Submit</button>
+      </div>
+    </form>
+  </div>
+<div *ngIf="status"> 
+<div class="row">  
+  <div class="col-sm-4"></div>  
+  <div class="col-sm-4" >  
+    <div [hidden]="submitted" style="width: 400px;">  
+      <form [formGroup]="OnlineTestform" #savetest (ngSubmit)="saveTest(saveTest)">   
+          <div class="form-group">  
+            <label for="name"> Test Title</label>  
+            <input type="text" class="form-control"  formControlName="testTitle" data-toggle="tooltip"   
+               data-placement="right" title="Enter Test title" [(ngModel)]="test.testTitle"  >  
+            <div class="alert alert-danger" *ngIf = "(TestTitle.touched) && (TestTitle.invalid)"   
+              style="margin-top: 5px;">  
+              <span *ngIf="TestTitle.errors.required">Test Title is Required</span>  
+              <span *ngIf="TestTitle.errors.pattern">Test title can be of alphabates only<br></span>                 
+              
+              </div>  
+        </div> 
+    
+          <div class="form-group">  
+              <label for="name">Test Duration</label>  
+              <input type="number" class="form-control" formControlName="testDuration" 
+                data-toggle="tooltip" data-placement="right" [(ngModel)]="test.testDuration" >  
+                <div class="alert alert-danger" *ngIf = "(TestDuration.touched) && (TestDuration.invalid)"   
+                style="margin-top: 5px;">  
+                  <span *ngIf="TestDuration.errors.required"> test Duration is Required<br></span>  
+                  <span *ngIf="TestDuration.errors.pattern"> test Duration can only be in digits<br></span>  
+                                              
+                </div>  
+                </div>
+                <div class="form-group">  
+                    <label for="name">Test Total Marks</label>  
+                    <input type="number" class="form-control" formControlName="testTotalMarks" 
+                      data-toggle="tooltip" data-placement="right" [(ngModel)]="test.testTotalMarks" >  
+                      <div class="alert alert-danger" *ngIf = "(TestTotalMarks.touched) && (TestTotalMarks.invalid)"   
+                      style="margin-top: 5px;">  
+                        <span *ngIf="TestTotalMarks.errors.required">  TestTotalMarks is Required<br></span> 
+                        <span *ngIf="TestTotalMarks.errors.min">  TestTotalMarks cannot be negative<br></span> 
+
+
+          </div>
+          </div>
+          <div class="form-group">  
+            <label for="name">Test Marks Scored</label>  
+            <input type="number" class="form-control" formControlName="testMarksScored" 
+              data-toggle="tooltip" data-placement="right" [(ngModel)]="test.testMarksScored">  
+              <div class="alert alert-danger" *ngIf = "(TestMarksScored.touched) && (TestMarksScored.invalid)"   
+              style="margin-top: 5px;">  
+                <span *ngIf="TestMarksScored.errors.required">  testMarksScored is Required<br></span>  
+                <span *ngIf="TestMarksScored.errors.min">  testMarksScored cannot be negative<br></span>
+                <span *ngIf="TestMarksScored.errors.Marks">  testMarksScored is Required<br></span>              
+        </div>  
+
+      </div>  
+      <div class="form-group">  
+        <label for="name">Test Start time</label>  
+        <input type="number"  class="form-control" formControlName="startTime" 
+          data-toggle="tooltip" data-placement="right" [(ngModel)]="test.startTime">  
+          <div class="alert alert-danger" *ngIf = "(StartTime.touched) && (StartTime.invalid)"   
+          style="margin-top: 5px;">  
+            <span *ngIf="StartTime.errors.required">  startTime is Required<br></span>  
+
+          </div>   
+          </div>
+            <div class="form-group">  
+                <label for="name">Test End time</label>  
+                <input type="number" class="form-control" formControlName="endTime" 
+                  data-toggle="tooltip" data-placement="right" [(ngModel)]="test.endTime">  
+                  <div class="alert alert-danger" *ngIf = "(EndTime.touched) && (EndTime.invalid)"   
+                  style="margin-top: 5px;">  
+                    <span *ngIf="EndTime.errors.required">  endTime is Required<br></span>  
+
+        </div>  
+      
+    </div>
+          <button type="submit" class="btn btn-success" >Update</button>  
+      </form>  
+  </div>  
+  </div>  
+  <div class="col-sm-4">
+ </div>  
+  
+<div class="row"> 
+  
+      <div [hidden]="!submitted">  
+        
+         <h4 style="text-align: center;margin: 10px 400px;">Test Updated SuccessFully!</h4> 
+         <h3 style="text-align: center;margin: 10px 350px;">Your Test Id is {{obj?.testId}}</h3> 
+         
+      </div>        
+  
+  <div class="col-sm-4"></div>  
+</div>
+</div>
+
+
+
+
+
+

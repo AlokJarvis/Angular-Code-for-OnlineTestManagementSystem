@@ -1,0 +1,39 @@
+<h2>View Test</h2>
+<div style="width: 300px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="testId">Test Id</label>
+      <input type="number" class="form-control" id="testId" required [(ngModel)]="testId" name="testId">
+    </div>
+ 
+    <div class="btn-group">
+      <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+  </form>
+</div>
+
+<div class="table-responsive">
+  <table class="table" style="border:5px solid rgba(220,230,242,1);" *ngIf="test">
+      <tr style="background-color:rgba(220,230,242,1); font-size:12pt">
+          <th style="text-align:center;">Test Id</th>
+          <th style="text-align:center;">Test Title</th>
+          <th style="text-align:center;">Test Duration</th>
+          <th style="text-align:center;">Test Total Marks</th>
+          <th style="text-align:center;">Test Marks Scored</th>
+          <th style="text-align:center;">Test Start Time</th>
+          <th style="text-align:center;">Test End Time</th>
+      </tr>
+      <tr style="background-color:white">
+        <td>{{test.testId}}</td>
+        <td>{{test.testTitle}}</td>
+        <td>{{test.testDuration}}</td> 
+        <td>{{test.testTotalMarks}}</td> 
+        <td>{{test.testMarksScored}}</td> 
+        <td>{{test.startTime}}</td> 
+        <td>{{test.endTime}}</td>
+      </tr>
+  </table>
+</div>
+
+
+ 
